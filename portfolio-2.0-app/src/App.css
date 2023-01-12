@@ -1,12 +1,6 @@
-.images {
-  display: flex;
-  background: red;
-}
 
-.images img {
-  width: 15%;
-  aspect-ratio: 3/2;
-  object-fit: contain;
+
+nav{
 }
 
 .scroll-button {
@@ -16,7 +10,8 @@
   color: white;
   display: flex;
   text-transform: uppercase;
-  transition: right 200ms;
+  transition-property: all;
+  transition-duration: 200ms;
   cursor: pointer;
   font-weight: bold;
 }
@@ -37,6 +32,6 @@
   border-left: 23px solid transparent;
 }
 
-.scroll-button:hover {
+.active, .scroll-button:hover {
   right: 0px;
 }

@@ -6,50 +6,32 @@ import { Image } from '@chakra-ui/react'
 import { Navigation } from './Navigation'
 import { SectionLayout } from './Section.Layout'
 import { ScrollButton } from './ScrollButton'
+import { useInView } from 'react-intersection-observer';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [activeSection, setActiveSection] = useState(null);
+
 
   return (
-    <React.Fragment>
-      <Box
-        as='main'
-        mx='auto'
-        maxW={{ base: '100%', '2xl': '1400px' }}
-      >
-        <Navigation />
-        <Box>
-          <SectionLayout id="about">
-            About me
-          </SectionLayout>
-          <SectionLayout id="skills">
-            SKILLS
-          </SectionLayout>
-          <SectionLayout id="works">
-            WORKS
-          </SectionLayout>
-        </Box>
+    <Box
+      as='main'
+      mx='auto'
+      maxW={{ base: '100%', '2xl': '1400px' }}
+    >
+      <Navigation />
+      <Box>
+        <SectionLayout position={0} id="about">
+          About me
+        </SectionLayout>
+        <SectionLayout position={1} id="skills">
+          SKILLS
+        </SectionLayout>
+        <SectionLayout position={2} id="works">
+          WORKS
+        </SectionLayout>
       </Box>
-
-      <ScrollButton
-        position={0}
-        href="#about"
-      >
-        About
-      </ScrollButton>
-      <ScrollButton
-        position={1}
-        href="#skills"
-      >
-        Skills
-      </ScrollButton>
-      <ScrollButton
-        position={2}
-        href="#works"
-      >
-        Works
-      </ScrollButton>
-    </React.Fragment>
+    </Box>
   )
 }
 
