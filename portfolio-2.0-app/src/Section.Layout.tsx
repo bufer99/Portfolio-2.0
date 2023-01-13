@@ -10,9 +10,12 @@ export const SectionLayout = ({ children, id, position }:
 
     const { ref, inView, entry } = useInView({
         threshold: 0.5,
+        onChange(inView, entry) {
+            if(inView) changeSectionInViewPort(id);
+        },
     });
 
-    const { navVisible } = useContext(SectionContext);
+    const { changeSectionInViewPort } = useContext(SectionContext);
 
     return (
         <React.Fragment>

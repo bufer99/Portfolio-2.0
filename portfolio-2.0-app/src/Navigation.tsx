@@ -3,15 +3,26 @@ import { useContext } from "react";
 import { useInView } from "react-intersection-observer";
 import { SectionContext } from "./SectionContext";
 
-const NavItem = ({ children }: { children: React.ReactNode }) => {
+const NavItem = ({ children, id }: { children: React.ReactNode, id: string }) => {
+
+    const { sectionInViewPort } = useContext(SectionContext);
+
     return (
         <Box
+            className="nav-item"
             textTransform="uppercase"
             fontSize="30px"
             py={3}
             px={4}
             cursor="pointer"
             fontWeight="bold"
+            //aktiv
+            bg={id === sectionInViewPort ? `white` : `inherit`}
+
+            //inaktiv
+            color={id !== sectionInViewPort ? `white` : `inherit`}
+
+
         >
             {children}
         </Box>
@@ -36,25 +47,23 @@ export const Navigation = () => {
             w="100%"
             h="69px"
             ref={ref}
-            position="sticky"
-            top="0"
         >
             <Box
                 display={{ base: 'none', md: "flex" }}
                 flexDirection="row"
                 justifyContent="center"
             >
-                <NavItem>
+                <NavItem id="about">
                     <Link href="#about">
                         About
                     </Link>
                 </NavItem>
-                <NavItem>
+                <NavItem id="skills">
                     <Link href="#skills">
                         Skills
                     </Link>
                 </NavItem>
-                <NavItem>
+                <NavItem id="works">
                     <Link href="#works">
                         Works
                     </Link>

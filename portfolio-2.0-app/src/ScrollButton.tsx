@@ -41,18 +41,13 @@ export const ScrollButton = ({ children, position, href, active }:
                         initial="hidden"
                         animate="show"
                         exit="exit"
-
-
                         className={active ? "scroll-button active" : "scroll-button"}
                         top={`calc(25% + ${position * 60}px)`}
                     >
-                        <Box className="scroll-button-triangle" />
-                        <Box className="scroll-button-body" bg="blue">
-                            <Box
-                                m="auto">
-                                {children}
-                            </Box>
-                        </Box >
+                        <Box
+                            m="auto">
+                            {children}
+                        </Box>
                     </Box>
                 </Link>
 

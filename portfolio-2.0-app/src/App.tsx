@@ -60,7 +60,7 @@ function App() {
           bgImage="/windows.png"
           bgAttachment="fixed"
           w="100%"
-          filter={`blur(${scrollY/10}px)`}
+          filter={`blur(${scrollY / 10}px)`}
           transform={`translate3d(0, -${scrollY}px, 0)`}
           //backgroundPosition={`0 ${scrollY * (3 / 5)}px`}
           h="100%"
@@ -73,7 +73,7 @@ function App() {
           bgImage="/notebook.png"
           bgAttachment="fixed"
           bgRepeat="no-repeat"
-          transform={`translate3d(0, -${scrollY * 2}px, 0)`}
+          transform={`translate3d(0, -${scrollY * 4}px, 0)`}
           bgPosition="center"
           bgSize="auto 400px"
           //backgroundPosition="center 0"
@@ -99,6 +99,24 @@ function App() {
           <Box>
             <SectionLayout position={0} id="about">
               About me
+              {
+                /*
+                <Box
+                position="absolute"
+                top={0}
+                right={0}
+                bgImage="/mouse.png"
+                bgRepeat="no-repeat"
+                //bgSize="auto 800px"
+                //bgSize="contain"
+                //transform={`translate3d(-300px, ${scrollY}px, 0) rotate(90deg)`}
+                //bgPosition="300px -300px"
+                zIndex={1500}
+                height="100%"
+                width="50%"
+              />
+                */
+              }
             </SectionLayout>
             <SectionLayout position={1} id="skills">
               Skills

@@ -1,18 +1,34 @@
-html, body{
+html, body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+
 }
 
-body, .main-container{
+body, .main-container {
   background-image: linear-gradient(to bottom right, #FF512F, #DD2476) !important;
 }
 
-main{
+main {
   background: transparent;
 }
 
+nav {
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+  mix-blend-mode: screen;
+}
+
+.nav-item {
+  transition: color 200ms, background 200ms;
+}
+
+.scroll-btn-bg {
+  background-image: linear-gradient(to bottom right, #FF512F, #DD2476);
+}
 
 .scroll-button {
   height: 46px;
@@ -25,22 +41,15 @@ main{
   transition-duration: 200ms;
   cursor: pointer;
   font-weight: bold;
+  background-image: linear-gradient(to bottom right, #FF512F, #DD2476);
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px 0 0 25px;
 }
 
 .scroll-button-body {
-  height: 100%;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.scroll-button-triangle {
-  width: 0;
-  height: 0;
-  border-top: 23px solid blue;
-  border-bottom: 23px solid blue;
-  border-left: 23px solid transparent;
+ 
 }
 
 .active, .scroll-button:hover {

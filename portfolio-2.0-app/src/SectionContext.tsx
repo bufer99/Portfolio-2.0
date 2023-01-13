@@ -2,7 +2,9 @@ import React, { useState } from "react";
 
 const defaultValue = {
     navVisible: true,
-    changeTheme: (value: boolean) => {}
+    changeTheme: (value: boolean) => { },
+    sectionInViewPort: "",
+    changeSectionInViewPort: (value: string) => { }
 }
 
 export const SectionContext = React.createContext(defaultValue);
@@ -10,15 +12,20 @@ export const SectionContext = React.createContext(defaultValue);
 const SectionProvider = ({ children }: { children: React.ReactNode }) => {
 
     const [navVisible, setNavVisible] = useState<boolean>(false);
+    const [sectionInViewPort, setSectionInViewPort] = useState<string>("");
 
 
     const changeTheme = (value: boolean) => {
         setNavVisible(value);
     };
 
+    const changeSectionInViewPort = (value: string) => {
+        setSectionInViewPort(value);
+    };
+
     return (
         <React.Fragment>
-            <SectionContext.Provider value={{ navVisible, changeTheme }}>
+            <SectionContext.Provider value={{ navVisible, changeTheme, sectionInViewPort, changeSectionInViewPort }}>
                 {children}
             </SectionContext.Provider>
         </React.Fragment>
