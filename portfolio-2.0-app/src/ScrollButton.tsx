@@ -8,7 +8,7 @@ export const ScrollButton = ({ children, position, href, active }:
 
     const context = useContext(SectionContext);
 
-    console.log("nav visible", context.navVisible)
+    //console.log("nav visible", context.navVisible)
 
 
     const container = {

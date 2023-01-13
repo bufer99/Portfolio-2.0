@@ -21,6 +21,7 @@ export const SectionLayout = ({ children, id, position }:
                 ref={ref}
                 id={id}
                 fontSize="xxx-large"
+                pt="69px"
             >
                 {children}
             </Box>

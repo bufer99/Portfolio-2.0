@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { Box, Container, Link, Text } from '@chakra-ui/layout'
@@ -7,31 +7,111 @@ import { Navigation } from './Navigation'
 import { SectionLayout } from './Section.Layout'
 import { ScrollButton } from './ScrollButton'
 import { useInView } from 'react-intersection-observer';
+import { motion, useScroll } from "framer-motion"
 
 function App() {
 
-  const [activeSection, setActiveSection] = useState(null);
+  const [scrollY, setScrollY] = useState(0);
+  const throttle = (fn: Function, wait: number = 300) => {
+    let inThrottle: boolean,
+      lastFn: ReturnType<typeof setTimeout>,
+      lastTime: number;
+    return function (this: any) {
+      const context = this,
+        args = arguments;
+      if (!inThrottle) {
+        fn.apply(context, args);
+        lastTime = Date.now();
+        inThrottle = true;
+      } else {
+        clearTimeout(lastFn);
+        lastFn = setTimeout(() => {
+          if (Date.now() - lastTime >= wait) {
+            fn.apply(context, args);
+            lastTime = Date.now();
+          }
+        }, Math.max(wait - (Date.now() - lastTime), 0));
+      }
+    };
+  };
 
+  window.addEventListener('scroll', throttle(() => requestAnimationFrame(() => setScrollY(window.scrollY / 10))))
+  //window.addEventListener('scroll', () => setScrollY(window.scrollY / 10))
+
+
+
+  useEffect(() => {
+    console.log(scrollY)
+  }, [scrollY])
 
   return (
-    <Box
-      as='main'
-      mx='auto'
-      maxW={{ base: '100%', '2xl': '1400px' }}
-    >
-      <Navigation />
-      <Box>
-        <SectionLayout position={0} id="about">
-          About me
-        </SectionLayout>
-        <SectionLayout position={1} id="skills">
-          SKILLS
-        </SectionLayout>
-        <SectionLayout position={2} id="works">
-          WORKS
-        </SectionLayout>
+    <React.Fragment>
+      <Box
+        position="relative"
+        h="100vh"
+      >
+        <Box
+          position="fixed"
+          top={0}
+          left={0}
+          right={0}
+          backgroundSize="cover"
+          backgroundRepeat="no-repeat"
+          bgImage="/windows.png"
+          bgAttachment="fixed"
+          w="100%"
+          filter={`blur(${scrollY/10}px)`}
+          transform={`translate3d(0, -${scrollY}px, 0)`}
+          //backgroundPosition={`0 ${scrollY * (3 / 5)}px`}
+          h="100%"
+        />
+        <Box
+          position="fixed"
+          top={0}
+          left={0}
+          right={0}
+          bgImage="/notebook.png"
+          bgAttachment="fixed"
+          bgRepeat="no-repeat"
+          transform={`translate3d(0, -${scrollY * 2}px, 0)`}
+          bgPosition="center"
+          bgSize="auto 400px"
+          //backgroundPosition="center 0"
+          //transform={`translateZ(${scrollY}px)`}
+          //backgroundPosition={`center ${scrollY}px`}
+          h="100%"
+          w="100%"
+        />
+
       </Box>
-    </Box>
+      <Box
+        className='main-container'
+        position="relative"
+        zIndex={1000}
+      >
+        <Box
+          as='main'
+          mx='auto'
+          maxW={{ base: '100%', '2xl': '1400px' }}
+        >
+
+          <Navigation />
+          <Box>
+            <SectionLayout position={0} id="about">
+              About me
+            </SectionLayout>
+            <SectionLayout position={1} id="skills">
+              Skills
+
+            </SectionLayout>
+            <SectionLayout position={2} id="works">
+              WORKS
+            </SectionLayout>
+          </Box >
+        </Box >
+      </Box>
+    </React.Fragment>
+
   )
 }
 

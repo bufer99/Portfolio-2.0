@@ -34,7 +34,10 @@ export const Navigation = () => {
         <Box
             as="nav"
             w="100%"
+            h="69px"
             ref={ref}
+            position="sticky"
+            top="0"
         >
             <Box
                 display={{ base: 'none', md: "flex" }}
