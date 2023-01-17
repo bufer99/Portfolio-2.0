@@ -1,4 +1,5 @@
 import { Box, Link } from "@chakra-ui/react"
+import { motion } from "framer-motion";
 import { useContext } from "react";
 import { useInView } from "react-intersection-observer";
 import { SectionContext } from "./SectionContext";
@@ -9,22 +10,24 @@ const NavItem = ({ children, id }: { children: React.ReactNode, id: string }) =>
 
     return (
         <Box
-            className="nav-item"
+            className={id === sectionInViewPort ? 'nav-item active' : 'nav-item'}
             textTransform="uppercase"
             fontSize="30px"
             py={3}
             px={4}
             cursor="pointer"
             fontWeight="bold"
-            //aktiv
-            bg={id === sectionInViewPort ? `white` : `inherit`}
-
-            //inaktiv
+            position="relative"
+            textAlign="center"
+            //bg={id === sectionInViewPort ? `white` : `inherit`}
+            width="150px"
+            zIndex="200"
             color={id !== sectionInViewPort ? `white` : `inherit`}
 
 
         >
             {children}
+
         </Box>
     )
 }
@@ -49,25 +52,42 @@ export const Navigation = () => {
             ref={ref}
         >
             <Box
-                display={{ base: 'none', md: "flex" }}
-                flexDirection="row"
+                display="flex"
                 justifyContent="center"
             >
-                <NavItem id="about">
-                    <Link href="#about">
-                        About
-                    </Link>
-                </NavItem>
-                <NavItem id="skills">
-                    <Link href="#skills">
-                        Skills
-                    </Link>
-                </NavItem>
-                <NavItem id="works">
-                    <Link href="#works">
-                        Works
-                    </Link>
-                </NavItem>
+                <Box
+
+                    display={{ base: 'none', md: "flex" }}
+                    flexDirection="row"
+                    justifyContent="center"
+                    position="relative"
+                    w="max-content"
+                >
+                    <NavItem id="about">
+                        <Link href="#about">
+                            About
+                        </Link>
+                    </NavItem>
+                    <NavItem id="skills">
+                        <Link href="#skills">
+                            Skills
+                        </Link>
+                    </NavItem>
+                    <NavItem id="works">
+                        <Link href="#works">
+                            Works
+                        </Link>
+                    </NavItem>
+
+                    <Box
+                        position="absolute"
+                        bg="white"
+                        w="150px"
+                        h="100%"
+                        transition="left 300ms ease"
+                        left={`${context.sectionInViewPort === "about" ? "0" : context.sectionInViewPort === "skills" ? "150px" : "300px"}`}
+                    />
+                </Box>
             </Box>
         </Box>
     )

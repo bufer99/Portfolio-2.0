@@ -8,6 +8,10 @@ import { SectionLayout } from './Section.Layout'
 import { ScrollButton } from './ScrollButton'
 import { useInView } from 'react-intersection-observer';
 import { motion, useScroll } from "framer-motion"
+import About from './Sections/About'
+import Skills from './Sections/Skills'
+import Works from './Sections/Works'
+import Footer from './Footer'
 
 function App() {
 
@@ -38,11 +42,6 @@ function App() {
   window.addEventListener('scroll', throttle(() => requestAnimationFrame(() => setScrollY(window.scrollY / 10))))
   //window.addEventListener('scroll', () => setScrollY(window.scrollY / 10))
 
-
-
-  useEffect(() => {
-    console.log(scrollY)
-  }, [scrollY])
 
   return (
     <React.Fragment>
@@ -98,35 +97,19 @@ function App() {
           <Navigation />
           <Box>
             <SectionLayout position={0} id="about">
-              About me
-              {
-                /*
-                <Box
-                position="absolute"
-                top={0}
-                right={0}
-                bgImage="/mouse.png"
-                bgRepeat="no-repeat"
-                //bgSize="auto 800px"
-                //bgSize="contain"
-                //transform={`translate3d(-300px, ${scrollY}px, 0) rotate(90deg)`}
-                //bgPosition="300px -300px"
-                zIndex={1500}
-                height="100%"
-                width="50%"
-              />
-                */
-              }
+              <About />
+              
             </SectionLayout>
             <SectionLayout position={1} id="skills">
-              Skills
+              <Skills />
 
             </SectionLayout>
             <SectionLayout position={2} id="works">
-              WORKS
+              <Works />
             </SectionLayout>
           </Box >
         </Box >
+        <Footer />
       </Box>
     </React.Fragment>
 

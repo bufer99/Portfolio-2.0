@@ -8,6 +8,9 @@ html, body {
 
 body, .main-container {
   background-image: linear-gradient(to bottom right, #FF512F, #DD2476) !important;
+  /*background-image: linear-gradient(to bottom right, #41295a, #2F0743) !important;*/
+  /*background-image: linear-gradient(to bottom right, #121C84, #8278DA) !important;*/
+  /*background-image: linear-gradient(to bottom right, #72FFB6, #10D164) !important;*/
 }
 
 main {
@@ -22,8 +25,28 @@ nav {
   mix-blend-mode: screen;
 }
 
+nav a:hover {
+  text-decoration: none !important;
+}
+
 .nav-item {
-  transition: color 200ms, background 200ms;
+  transition: color 200ms, background 200ms, transform 200ms;
+}
+
+.nav-item:not(.active):hover:after {
+  height: 5px;
+}
+
+.nav-item:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  left: 0;
+  bottom: 0;
+  background: white;
+  transition: height 100ms;
 }
 
 .scroll-btn-bg {
@@ -48,10 +71,30 @@ nav {
   border-radius: 25px 0 0 25px;
 }
 
-.scroll-button-body {
- 
-}
-
 .active, .scroll-button:hover {
   right: 0px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate {
+  animation: scroll 5s linear infinite;
+}
+
+@keyframes sliding {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-1000px);
+  }
 }
