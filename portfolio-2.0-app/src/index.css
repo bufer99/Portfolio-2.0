@@ -17,6 +17,15 @@ main {
   background: transparent;
 }
 
+footer svg{
+  width: 32px;
+  height: auto;
+}
+
+footer a:hover svg{
+  color: rgba(255,255,255,.7);
+}
+
 nav {
   backdrop-filter: blur(10px);
   z-index: 1000;
@@ -49,8 +58,15 @@ nav a:hover {
   transition: height 100ms;
 }
 
-.section-layout:not(:first-child) {
+.section-layout{
   padding-top: 69px;
+}
+
+h2{
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .scroll-btn-bg {
@@ -83,4 +99,17 @@ nav a:hover {
   width: 80px;
   height: auto;
   color: white;
+}
+
+.skills-content h3 {
+  padding-bottom: 1rem;
+}
+
+.work-content img{
+  width: auto;
+  height: 205px;
+}
+
+.work-item{
+  width: 400px;
 }

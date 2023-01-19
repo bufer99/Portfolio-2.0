@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react"
-import React, { LegacyRef, useContext } from "react"
+import React, { useContext } from "react"
 import { useInView } from "react-intersection-observer";
 import { ScrollButton } from "./ScrollButton";
 import { SectionContext } from "./SectionContext";
@@ -11,22 +11,24 @@ export const SectionLayout = ({ children, id, position }:
     const { ref, inView, entry } = useInView({
         threshold: 0.5,
         onChange(inView, entry) {
-            if(inView) changeSectionInViewPort(id);
+            if (inView) changeSectionInViewPort(id);
         },
     });
 
     const { changeSectionInViewPort } = useContext(SectionContext);
 
     return (
-        <React.Fragment>
+        <Box
+            my={8}
+        >
             <Box
                 className="section-layout"
-                height="100vh"
+                //height="100vh"
                 ref={ref}
                 id={id}
                 fontSize="xxx-large"
+               
             >
-                <hr/>
                 {children}
             </Box>
             <ScrollButton
@@ -36,6 +38,6 @@ export const SectionLayout = ({ children, id, position }:
             >
                 {id}
             </ScrollButton>
-        </React.Fragment>
+        </Box>
     )
 }

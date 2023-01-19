@@ -27,6 +27,7 @@ const SkillFlex = ({ children }: { children: React.ReactNode }) => {
         <Flex
             gap={5}
             flexWrap="wrap"
+            ml={6}
         >
             {children}
         </Flex>
@@ -44,7 +45,6 @@ export default function Skills() {
     return (
         <Box
             className="skills-content"
-
         >
             <Text as="h2">
                 Skills
@@ -54,11 +54,12 @@ export default function Skills() {
                 transform={isInView ? "none" : "translateX(-200px)"}
                 opacity={isInView ? 1 : 0}
                 transition={"all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"}
+                ml={6}
             >
-                < Box
+                <Box
                     display="flex"
                     flexDirection="column"
-                    gap={5}
+                    mb={5}
                 >
                     <Box>
                         <Text as="h3">
