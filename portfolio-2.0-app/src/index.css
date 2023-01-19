@@ -49,6 +49,10 @@ nav a:hover {
   transition: height 100ms;
 }
 
+.section-layout:not(:first-child) {
+  padding-top: 69px;
+}
+
 .scroll-btn-bg {
   background-image: linear-gradient(to bottom right, #FF512F, #DD2476);
 }
@@ -75,26 +79,8 @@ nav a:hover {
   right: 0px;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.animate {
-  animation: scroll 5s linear infinite;
-}
-
-@keyframes sliding {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-1000px);
-  }
+.skills-content svg {
+  width: 80px;
+  height: auto;
+  color: white;
 }

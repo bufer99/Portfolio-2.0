@@ -20,12 +20,13 @@ export const SectionLayout = ({ children, id, position }:
     return (
         <React.Fragment>
             <Box
+                className="section-layout"
                 height="100vh"
                 ref={ref}
                 id={id}
                 fontSize="xxx-large"
-                pt="69px"
             >
+                <hr/>
                 {children}
             </Box>
             <ScrollButton

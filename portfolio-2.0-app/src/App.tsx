@@ -98,11 +98,9 @@ function App() {
           <Box>
             <SectionLayout position={0} id="about">
               <About />
-              
             </SectionLayout>
             <SectionLayout position={1} id="skills">
               <Skills />
-
             </SectionLayout>
             <SectionLayout position={2} id="works">
               <Works />

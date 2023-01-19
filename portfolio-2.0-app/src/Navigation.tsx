@@ -38,18 +38,24 @@ export const Navigation = () => {
 
 
     const { ref, inView, entry } = useInView({
+        triggerOnce: true,
         threshold: 0.8,
         onChange(inView, entry) {
-            context.changeTheme(inView)
+            context.setNavVisible(inView)
         },
     });
 
     return (
         <Box
+            transform={inView ? "none" : "translateX(-200px)"}
+            opacity={inView ? 1 : 0}
+            transition={"all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"}
+
             as="nav"
             w="100%"
             h="69px"
             ref={ref}
+            boxShadow="0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);"
         >
             <Box
                 display="flex"
@@ -80,12 +86,13 @@ export const Navigation = () => {
                     </NavItem>
 
                     <Box
+                        opacity={context.sectionInViewPort !== "" ? "1" : "0"}
                         position="absolute"
                         bg="white"
                         w="150px"
                         h="100%"
-                        transition="left 300ms ease"
-                        left={`${context.sectionInViewPort === "about" ? "0" : context.sectionInViewPort === "skills" ? "150px" : "300px"}`}
+                        transition="left 300ms ease, opacity 200ms"
+                        left={`${context.sectionInViewPort === "works" ? "300px" : context.sectionInViewPort === "skills" ? "150px" : "0"}`}
                     />
                 </Box>
             </Box>
