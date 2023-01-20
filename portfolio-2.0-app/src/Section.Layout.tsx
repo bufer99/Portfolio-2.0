@@ -19,7 +19,8 @@ export const SectionLayout = ({ children, id, position }:
 
     return (
         <Box
-            my={8}
+            my={12}
+            //borderY="5px white solid"
         >
             <Box
                 className="section-layout"

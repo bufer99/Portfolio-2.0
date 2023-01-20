@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { Box, Container, Link, Text } from '@chakra-ui/layout'
+import { Box, Container, Flex, Link, Text } from '@chakra-ui/layout'
 import { Image } from '@chakra-ui/react'
 import { Navigation } from './Navigation'
 import { SectionLayout } from './Section.Layout'
@@ -88,25 +88,31 @@ function App() {
         position="relative"
         zIndex={1000}
       >
-        <Box
-          as='main'
-          mx='auto'
-          maxW={{ base: '100%', '2xl': '1400px' }}
+        <Flex
+          justifyContent="space-evenly"
         >
+          <Box as="aside" className='left'></Box>
+          <Box
+            as='main'
+            //mx='auto'
+            maxW={{ base: '100%', '2xl': '1400px' }}
+          >
 
-          <Navigation />
-          <Box>
-            <SectionLayout position={0} id="about">
-              <About />
-            </SectionLayout>
-            <SectionLayout position={1} id="skills">
-              <Skills />
-            </SectionLayout>
-            <SectionLayout position={2} id="works">
-              <Works />
-            </SectionLayout>
+            <Navigation />
+            <Box>
+              <SectionLayout position={0} id="about">
+                <About />
+              </SectionLayout>
+              <SectionLayout position={1} id="skills">
+                <Skills />
+              </SectionLayout>
+              <SectionLayout position={2} id="works">
+                <Works />
+              </SectionLayout>
+            </Box >
           </Box >
-        </Box >
+          <Box as="aside" className='right'></Box>
+        </Flex>
         <Footer />
       </Box>
     </React.Fragment>

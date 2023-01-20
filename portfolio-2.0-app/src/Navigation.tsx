@@ -38,7 +38,6 @@ export const Navigation = () => {
 
 
     const { ref, inView, entry } = useInView({
-        triggerOnce: true,
         threshold: 0.8,
         onChange(inView, entry) {
             context.setNavVisible(inView)
@@ -47,10 +46,6 @@ export const Navigation = () => {
 
     return (
         <Box
-            transform={inView ? "none" : "translateX(-200px)"}
-            opacity={inView ? 1 : 0}
-            transition={"all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"}
-
             as="nav"
             w="100%"
             h="69px"

@@ -1,6 +1,7 @@
 import { Box, Flex, Grid, Img, Text, Tooltip } from "@chakra-ui/react";
 import { DiJava, DiReact, DiPhp, DiLaravel, DiCss3, DiHtml5, DiJsBadge, DiCode, DiTerminal } from "react-icons/di";
-import { SiTypescript, SiLaravel, SiJava } from "react-icons/si";
+import { SiTypescript, SiLaravel, SiJava, SiRedux } from "react-icons/si";
+import { FaDatabase } from "react-icons/fa";
 import { useRef, useState } from 'react'
 import { useInView } from "framer-motion";
 
@@ -81,6 +82,9 @@ export default function Skills() {
                             <IconWrapper label="TS">
                                 <SiTypescript />
                             </IconWrapper>
+                            <IconWrapper label="Redux">
+                                <SiRedux />
+                            </IconWrapper>
                         </SkillFlex>
                     </Box>
                 </Box >
@@ -98,6 +102,9 @@ export default function Skills() {
                             </IconWrapper>
                             <IconWrapper label="Laravel">
                                 <SiLaravel />
+                            </IconWrapper>
+                            <IconWrapper label="MySQL">
+                                <FaDatabase />
                             </IconWrapper>
                         </SkillFlex>
                     </Box>
