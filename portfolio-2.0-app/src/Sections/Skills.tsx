@@ -15,6 +15,9 @@ const IconWrapper = ({ children, label }: { children: React.ReactNode, label: st
             alignItems="center"
             boxShadow="0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);"
             p={5}
+            pb={2}
+            gap={2}
+            color="white"
         >
             {children}
             <Text fontSize={"25px"}>{label}</Text>

@@ -92,8 +92,7 @@ function App() {
           justifyContent="space-evenly"
         >
           <Box as="aside" className='left'></Box>
-          <Box
-            as='main'
+          <Box as='main'
             //mx='auto'
             maxW={{ base: '100%', '2xl': '1400px' }}
           >

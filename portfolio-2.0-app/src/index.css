@@ -7,9 +7,9 @@ html, body {
 }
 
 body, .main-container {
-  background-image: linear-gradient(to bottom right, #FF512F, #DD2476) !important;
+  /*background-image: linear-gradient(to bottom right, #FF512F, #DD2476) !important;*/
   /*background-image: linear-gradient(to bottom right, #41295a, #2F0743) !important;*/
-  /*background-image: linear-gradient(to bottom right, #121C84, #8278DA) !important;*/
+  background-image: linear-gradient(to bottom right, #121C84, #8278DA) !important;
   /*background-image: linear-gradient(to bottom right, #72FFB6, #10D164) !important;*/
 }
 
@@ -80,7 +80,16 @@ h2{
   text-transform: uppercase;
   color: white;
   font-weight: 600;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 3rem !important;
+}
+
+h3{
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2rem !important;
 }
 
 .scroll-btn-bg {
@@ -126,4 +135,9 @@ h2{
 
 .work-item{
   width: 400px;
+}
+
+.work-item:hover{
+  box-shadow: 0 8px 8px 0 rgb(0 0 0 / 20%), 
+              0 6px 20px 0 rgb(0 0 0 / 19%);
 }
