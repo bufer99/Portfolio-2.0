@@ -46,7 +46,7 @@ export default function Skills() {
     const ref = useRef(null)
     const isInView = useInView(ref, { amount: .5, once: true })
 
-    console.log(isInView)
+    //console.log(isInView)
 
     return (
         <Box

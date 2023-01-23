@@ -17,27 +17,27 @@ main {
   background: transparent;
 }
 
-aside{
+aside {
   width: 20%;
   background-repeat: repeat-y;
   background-size: contain;
 }
 
-.left{
+.left {
   background-image: url("/left-side2.png");
 }
 
-.right{
+.right {
   background-image: url("/right-side2.png");
 }
 
-footer svg{
+footer svg {
   width: 32px;
   height: auto;
 }
 
-footer a:hover svg{
-  color: rgba(255,255,255,.7);
+footer a:hover svg {
+  color: rgba(255, 255, 255, .7);
 }
 
 nav {
@@ -82,11 +82,11 @@ nav a:hover {
   pointer-events: none;
 }
 
-.section-layout{
+.section-layout {
   padding-top: 69px;
 }
 
-h2{
+h2 {
   text-transform: uppercase;
   color: white;
   font-weight: 600;
@@ -94,7 +94,7 @@ h2{
   font-size: 3rem !important;
 }
 
-h3{
+h3 {
   text-transform: uppercase;
   color: white;
   font-weight: 600;
@@ -138,16 +138,23 @@ h3{
   padding-bottom: 1rem;
 }
 
-.work-content img{
+.work-content img {
   width: auto;
   height: 205px;
 }
 
-.work-item{
-  width: 400px;
+@media screen and (max-width: 600px) {
+  .work-content img {
+    height: auto;
+  }
 }
 
-.work-item:hover{
-  box-shadow: 0 8px 8px 0 rgb(0 0 0 / 20%), 
-              0 6px 20px 0 rgb(0 0 0 / 19%);
+.work-item {
+  width: 40vw;
+  max-width: 400px;
+}
+
+.work-item:hover {
+  box-shadow: 0 8px 8px 0 rgb(0 0 0 / 20%),
+    0 6px 20px 0 rgb(0 0 0 / 19%);
 }

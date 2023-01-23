@@ -46,8 +46,6 @@ const ReferenceItem = ({ children, img, githubURL, liveURL, opened, setOpened, n
         isInView: boolean,
         delay: number
     }) => {
-
-        console.log(`all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${delay}s`);
     return (
         <Box
             position="relative"
@@ -103,7 +101,9 @@ export default function Works() {
     const [opened, setOpened] = useState<string>("");
 
     const ref = useRef(null)
-    const isInView = useInView(ref, { amount: .5, once: true })
+    const isInView = useInView(ref, { amount: 1, once: true })
+
+   //console.log(isInView)
 
     return (
         <Box
@@ -113,11 +113,12 @@ export default function Works() {
                 My works
             </Text>
             <Box
-                ref={ref}
+                
                 display="flex"
                 justifyContent="center"
                 flexWrap="wrap"
                 gap={5}
+                ref={ref}
             >
 
                 <ReferenceItem

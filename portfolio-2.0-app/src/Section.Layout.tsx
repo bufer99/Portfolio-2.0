@@ -12,6 +12,7 @@ export const SectionLayout = ({ children, id, position }:
         threshold: 0.5,
         onChange(inView, entry) {
             if (inView) changeSectionInViewPort(id);
+            console.log("change:",id)
         },
     });
 
@@ -24,7 +25,7 @@ export const SectionLayout = ({ children, id, position }:
         >
             <Box
                 className="section-layout"
-                minH="100vh"
+                //minH="100vh"
                 ref={ref}
                 id={id}
                 fontSize="xxx-large"

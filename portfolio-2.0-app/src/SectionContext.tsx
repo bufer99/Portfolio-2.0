@@ -16,6 +16,7 @@ const SectionProvider = ({ children }: { children: React.ReactNode }) => {
 
     const changeSectionInViewPort = (value: string) => {
         setSectionInViewPort(value);
+        console.log(value)
     };
 
     return (
