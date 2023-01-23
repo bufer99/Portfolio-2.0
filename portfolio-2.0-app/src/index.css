@@ -54,6 +54,15 @@ nav a:hover {
 
 .nav-item {
   transition: color 200ms, background 200ms, transform 200ms;
+
+}
+
+.nav-item a {
+  height: 100%;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-item:not(.active):hover:after {
@@ -70,6 +79,7 @@ nav a:hover {
   bottom: 0;
   background: white;
   transition: height 100ms;
+  pointer-events: none;
 }
 
 .section-layout{

@@ -13,8 +13,8 @@ const NavItem = ({ children, id }: { children: React.ReactNode, id: string }) =>
             className={id === sectionInViewPort ? 'nav-item active' : 'nav-item'}
             textTransform="uppercase"
             fontSize="30px"
-            py={3}
-            px={4}
+            //py={3}
+            //px={4}
             cursor="pointer"
             fontWeight="bold"
             position="relative"
@@ -55,6 +55,7 @@ export const Navigation = () => {
             <Box
                 display="flex"
                 justifyContent="center"
+                h="100%"
             >
                 <Box
 
@@ -63,6 +64,7 @@ export const Navigation = () => {
                     justifyContent="center"
                     position="relative"
                     w="max-content"
+                    h="100%"
                 >
                     <NavItem id="about">
                         <Link href="#about">

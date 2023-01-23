@@ -24,7 +24,7 @@ export const SectionLayout = ({ children, id, position }:
         >
             <Box
                 className="section-layout"
-                height="100vh"
+                minH="100vh"
                 ref={ref}
                 id={id}
                 fontSize="xxx-large"

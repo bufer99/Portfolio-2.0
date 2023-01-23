@@ -3,57 +3,90 @@ import { useEffect, useRef, useState } from "react";
 import { DiGithubFull } from "react-icons/di";
 import { BiLinkExternal } from "react-icons/bi"
 import { useInView } from "framer-motion";
+import { DiJava, DiReact, DiPhp, DiLaravel, DiCss3, DiHtml5, DiJsBadge, DiCode, DiTerminal } from "react-icons/di";
+import { SiTypescript, SiLaravel, SiJava, SiRedux } from "react-icons/si";
+import { FaDatabase } from "react-icons/fa";
 
 
-const ReferenceItem = ({ children, img, githubURL, liveURL, opened, setOpened }:
+const Technologies = ({ children }: { children: React.ReactNode }) => {
+    return (
+        <Box>
+            {children}
+        </Box>
+    )
+}
+
+const NewLabel = () => {
+    return (
+        <Box
+            position="absolute"
+            color="black"
+            bg="white"
+            top="-5px"
+            left="-5px"
+            fontSize="lg"
+            borderRadius="10%"
+            p={1}
+            fontWeight="bold"
+            userSelect="none"
+            boxShadow="rgb(0 0 0 / 35%) 0px 2px 8px"
+        >New</Box>
+    )
+}
+
+const ReferenceItem = ({ children, img, githubURL, liveURL, opened, setOpened, newItem = false }:
     {
         children?: React.ReactNode,
         img: string,
         githubURL: string,
         liveURL?: string,
         opened: string,
-        setOpened: (v: string) => void
+        setOpened: (v: string) => void,
+        newItem?: boolean
     }) => {
-
-
-
-
     return (
         <Box
-            //boxShadow="0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);"
-            className="work-item"
-            borderRadius={8}
-            overflow="hidden"
-            bg="white"
-            display="flex"
-            flexDirection="column"
-            alignContent="stretch"
-            onClick={() => {
-                if (githubURL === opened) setOpened("")
-                else setOpened(githubURL)
-            }}
-            h="max-content"
+            position="relative"
         >
-            <Img src={img} />
-            <Text
-                fontSize={{ base: "sm" }}
-                p={5}
-                textOverflow="ellipsis"
-                transition="all 200ms"
-                whiteSpace={opened === githubURL ? "normal" : "nowrap"}
+            {newItem && <NewLabel />}
+
+            <Box
+                boxShadow="0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);"
+                className="work-item"
+                borderRadius={8}
                 overflow="hidden"
-                userSelect="none"
+                bg="white"
+                display="flex"
+                flexDirection="column"
+                alignContent="stretch"
+                onClick={() => {
+                    if (githubURL === opened) setOpened("")
+                    else setOpened(githubURL)
+                }}
+                h="max-content"
             >
-                {children}
-            </Text>
-            <Flex
-                justifyContent="space-evenly"
-                alignItems="center"
-            >
-                <Link target="_blank" href={githubURL}><DiGithubFull /></Link>
-                {liveURL && <Link target="_blank" href={liveURL}><BiLinkExternal size="30px" /></Link>}
-            </Flex>
-        </Box >
+
+                <Img src={img} />
+                <Text
+                    fontSize={{ base: "sm" }}
+                    p={5}
+                    textOverflow="ellipsis"
+                    transition="all 200ms"
+                    whiteSpace={opened === githubURL ? "normal" : "nowrap"}
+                    overflow="hidden"
+                    userSelect="none"
+                >
+                    {children}
+                </Text>
+                <Flex
+                    justifyContent="space-evenly"
+                    alignItems="center"
+                >
+                    <Link target="_blank" href={githubURL}><DiGithubFull /></Link>
+                    {liveURL && <Link target="_blank" href={liveURL}><BiLinkExternal size="30px" /></Link>}
+                </Flex>
+            </Box >
+        </Box>
     )
 }
 
@@ -138,6 +171,7 @@ export default function Works() {
                     img="/references/movieRating.PNG"
                     githubURL="https://github.com/bufer99/MovieRatingApp-frontend"
                     liveURL="https://move-rating-app-cc7pg.ondigitalocean.app/"
+                    newItem={true}
                 >
                     <b>Movie Rating App</b>. Full stack React+Laravel api website
                 </ReferenceItem>

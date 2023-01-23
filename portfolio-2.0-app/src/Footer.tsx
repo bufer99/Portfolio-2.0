@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <Box
             as="footer"
-            bg="black"
+            bg="rgba(52,53,65,1)"
             color="white"
             p={6}
             display="flex"
