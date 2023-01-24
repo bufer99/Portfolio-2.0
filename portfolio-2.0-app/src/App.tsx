@@ -64,23 +64,7 @@ function App() {
           //backgroundPosition={`0 ${scrollY * (3 / 5)}px`}
           h="100%"
         />
-        <Box
-          position="fixed"
-          top={0}
-          left={0}
-          right={0}
-          bgImage="/notebook.png"
-          bgAttachment="fixed"
-          bgRepeat="no-repeat"
-          transform={`translate3d(0, -${scrollY * 4}px, 0)`}
-          bgPosition="center"
-          bgSize="auto 400px"
-          //backgroundPosition="center 0"
-          //transform={`translateZ(${scrollY}px)`}
-          //backgroundPosition={`center ${scrollY}px`}
-          h="100%"
-          w="100%"
-        />
+        
 
       </Box>
       <Box

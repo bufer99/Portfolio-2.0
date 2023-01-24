@@ -14,13 +14,15 @@ const IconWrapper = ({ children, label }: { children: React.ReactNode, label: st
             flexDirection="column"
             alignItems="center"
             _hover={{
-                boxShadow:"0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);"
+                boxShadow: "0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);",
+                backgroundColor: "rgba(0,0,0,.03)"
             }}
             p={5}
             pb={2}
             gap={2}
             color="white"
         >
+
             {children}
             <Text fontSize={"25px"}>{label}</Text>
         </Box >
@@ -55,7 +57,81 @@ export default function Skills() {
             <Text as="h2">
                 Skills
             </Text>
-            <Box
+            <Flex>
+                <Box
+                    flexBasis="40%"
+                    bg="red"
+                >
+                    <SkillFlex>
+                        <IconWrapper label="JS ES6">
+                            <DiJsBadge />
+                        </IconWrapper>
+                        <IconWrapper label="React">
+                            <DiReact />
+                        </IconWrapper>
+                        <IconWrapper label="CSS">
+                            <DiCss3 />
+                        </IconWrapper>
+                        <IconWrapper label="HTML5">
+                            <DiHtml5 />
+                        </IconWrapper>
+                        <IconWrapper label="TS">
+                            <SiTypescript />
+                        </IconWrapper>
+                        <IconWrapper label="Redux">
+                            <SiRedux />
+                        </IconWrapper>
+                    </SkillFlex>
+                </Box>
+                <Flex
+                    direction="column"
+                    alignItems="space-between"
+                    justifyContent="space-around"
+                    flexBasis="20%"
+                    bg="green"
+                >
+                    <Box
+                        alignSelf="start"
+                    >
+                        <Text as="h3">
+                            Frontend
+                        </Text>
+                    </Box>
+                    <Box
+                        alignSelf="end"
+                    >
+                        <Text as="h3">
+                            Backend
+                        </Text>
+                    </Box>
+                </Flex>
+                <Box
+                    flexBasis="40%"
+                    bg="blue"
+                >
+                    <SkillFlex>
+                        <IconWrapper label="Java">
+                            <SiJava />
+                        </IconWrapper>
+                        <IconWrapper label="PHP">
+                            <DiPhp />
+                        </IconWrapper>
+                        <IconWrapper label="Laravel">
+                            <SiLaravel />
+                        </IconWrapper>
+                        <IconWrapper label="MySQL">
+                            <FaDatabase />
+                        </IconWrapper>
+                    </SkillFlex>
+                </Box>
+            </Flex>
+        </Box >
+    )
+}
+
+
+/*
+<Box
                 ref={ref}
                 transform={isInView ? "none" : "translateX(-200px)"}
                 opacity={isInView ? 1 : 0}
@@ -115,6 +191,5 @@ export default function Skills() {
                     </Box>
                 </Box>
             </Box>
-        </Box >
-    )
-}
+            
+            */

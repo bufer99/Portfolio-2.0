@@ -9,7 +9,8 @@ export default function About() {
 
     return (
         <Box
-            fontSize={{ base: "lg", sm: "xl", md: "3xl", lg: "4xl" }}
+            fontSize={{ base: "lg", sm: "xl", md: "3xl", lg: "3xl" }}
+            color="white"
         >
             <Text as="h2">
                 About me

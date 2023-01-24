@@ -51,7 +51,7 @@ const ReferenceItem = ({ children, img, githubURL, liveURL, opened, setOpened, n
             position="relative"
             opacity={isInView ? 1 : 0}
             transform={isInView ? "none" : "translateX(-200px)"}
-            transition={`all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${delay*100}ms`}
+            transition={`all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${delay * 100}ms`}
         >
             {newItem && <NewLabel />}
 
@@ -60,7 +60,8 @@ const ReferenceItem = ({ children, img, githubURL, liveURL, opened, setOpened, n
                 className="work-item"
                 borderRadius={8}
                 overflow="hidden"
-                bg="white"
+                //bg="white"
+                color="white"
                 display="flex"
                 flexDirection="column"
                 alignContent="stretch"
@@ -74,7 +75,7 @@ const ReferenceItem = ({ children, img, githubURL, liveURL, opened, setOpened, n
                 <Img src={img} />
                 <Text
                     fontSize={{ base: "sm" }}
-                    p={5}
+                    p={{ base: 2, xl: 5 }}
                     textOverflow="ellipsis"
                     transition="all 200ms"
                     whiteSpace={opened === githubURL ? "normal" : "nowrap"}
@@ -86,9 +87,10 @@ const ReferenceItem = ({ children, img, githubURL, liveURL, opened, setOpened, n
                 <Flex
                     justifyContent="space-evenly"
                     alignItems="center"
+                    className="links"
                 >
                     <Link target="_blank" href={githubURL}><DiGithubFull /></Link>
-                    {liveURL && <Link target="_blank" href={liveURL}><BiLinkExternal size="30px" /></Link>}
+                    {liveURL && <Link target="_blank" href={liveURL}><BiLinkExternal /></Link>}
                 </Flex>
             </Box >
         </Box>
@@ -103,7 +105,7 @@ export default function Works() {
     const ref = useRef(null)
     const isInView = useInView(ref, { amount: 1, once: true })
 
-   //console.log(isInView)
+    //console.log(isInView)
 
     return (
         <Box
@@ -113,7 +115,7 @@ export default function Works() {
                 My works
             </Text>
             <Box
-                
+
                 display="flex"
                 justifyContent="center"
                 flexWrap="wrap"
