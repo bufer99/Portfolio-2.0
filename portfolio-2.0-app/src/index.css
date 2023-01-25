@@ -29,6 +29,12 @@ aside {
   }
 }
 
+@media screen and (max-width: 30em){
+  h2{
+    display: none;
+  }
+}
+
 @media screen and (max-width: 80em){
   aside{
     display: none;
@@ -100,7 +106,7 @@ nav a:hover {
 }
 
 .section-wrapper:not(:first-of-type){
-  margin: 3rem 0;
+  margin: 5rem 0;
 }
 
 h2 {

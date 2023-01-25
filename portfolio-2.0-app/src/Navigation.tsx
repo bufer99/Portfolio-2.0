@@ -82,7 +82,7 @@ export const Navigation = () => {
                     alignItems="center"
                 >
                     <AnimatePresence exitBeforeEnter={true}>
-                        {context.sectionInViewPort === "about" && <MobileNavItem key="about">About</MobileNavItem>}
+                        {context.sectionInViewPort === "about" && <MobileNavItem key="about">About Me</MobileNavItem>}
                         {context.sectionInViewPort === "skills" && <MobileNavItem key="stack">Stack</MobileNavItem>}
                         {context.sectionInViewPort === "works" && <MobileNavItem key="works">Works</MobileNavItem>}
                     </AnimatePresence>
