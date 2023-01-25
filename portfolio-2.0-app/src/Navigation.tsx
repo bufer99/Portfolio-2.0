@@ -1,5 +1,5 @@
 import { Box, Link } from "@chakra-ui/react"
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useContext } from "react";
 import { useInView } from "react-intersection-observer";
 import { SectionContext } from "./SectionContext";
@@ -32,6 +32,25 @@ const NavItem = ({ children, id }: { children: React.ReactNode, id: string }) =>
     )
 }
 
+const MobileNavItem = ({ children }: { children: React.ReactNode }) => {
+    return (
+        <AnimatePresence exitBeforeEnter={true}>
+            <Box
+                as={motion.div}
+                color="white"
+                fontSize="30px"
+                textTransform="uppercase"
+
+                initial={{ x: 300, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -300, opacity: 0 }}
+            >
+                {children}
+            </Box>
+        </AnimatePresence>
+    )
+}
+
 export const Navigation = () => {
 
     const context = useContext(SectionContext);
@@ -58,8 +77,21 @@ export const Navigation = () => {
                 h="100%"
             >
                 <Box
+                    display={{ base: 'flex', sm: "none" }}
 
-                    display={{ base: 'none', md: "flex" }}
+                    gap={5}
+
+                    alignItems="center"
+                >
+                    <AnimatePresence exitBeforeEnter={true}>
+                        {context.sectionInViewPort === "about" && <MobileNavItem key="about">About</MobileNavItem>}
+                        {context.sectionInViewPort === "skills" && <MobileNavItem key="stack">Stack</MobileNavItem>}
+                        {context.sectionInViewPort === "works" && <MobileNavItem key="works">Works</MobileNavItem>}
+                    </AnimatePresence>
+                </Box>
+                <Box
+
+                    display={{ base: 'none', sm: "flex" }}
                     flexDirection="row"
                     justifyContent="center"
                     position="relative"
@@ -92,7 +124,7 @@ export const Navigation = () => {
                         left={`${context.sectionInViewPort === "works" ? "300px" : context.sectionInViewPort === "skills" ? "150px" : "0"}`}
                     />
                 </Box>
-            </Box>
-        </Box>
+            </Box >
+        </Box >
     )
 }

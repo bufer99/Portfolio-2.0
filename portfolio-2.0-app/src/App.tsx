@@ -82,7 +82,9 @@ function App() {
           >
 
             <Navigation />
-            <Box>
+            <Box
+              mx={{base: "1rem"}}
+            >
               <SectionLayout position={0} id="about">
                 <About />
               </SectionLayout>

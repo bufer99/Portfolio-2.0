@@ -23,6 +23,12 @@ aside {
   background-size: contain;
 }
 
+@media screen and (max-width: 80em){
+  aside{
+    display: none;
+  }
+}
+
 .left {
   background-image: url("/left-side2.png");
 }
@@ -86,6 +92,10 @@ nav a:hover {
   padding-top: 69px;
 }
 
+.section-wrapper:not(:first-of-type){
+  margin: 3rem 0;
+}
+
 h2 {
   text-transform: uppercase;
   color: white;
@@ -100,6 +110,28 @@ h3 {
   font-weight: 600;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 2rem !important;
+  user-select: none;
+  width: max-content;
+}
+
+.skills-content h3:hover:after {
+  transform: translateX(1rem);
+}
+
+.skills-content h3:hover:before {
+  transform: translateX(-1rem);
+}
+
+.skills-content h3::after {
+  content: '>';
+  display: inline-block;
+  transition: transform 200ms;
+}
+
+.skills-content h3::before {
+  content: '<';
+  display: inline-block;
+  transition: transform 200ms;
 }
 
 .scroll-btn-bg {
@@ -132,6 +164,14 @@ h3 {
   width: 80px;
   height: auto;
   color: white;
+}
+
+@media screen and (max-width: 750px) {
+  .skills-content svg {
+    width: 50px;
+    height: auto;
+    color: white;
+  }
 }
 
 .skills-content h3 {
@@ -174,7 +214,7 @@ h3 {
 .work-item {
   width: 40vw;
   max-width: 400px;
-  background-color: rgba(0,0,0,.05);
+  background-color: rgba(0, 0, 0, .05);
 }
 
 .work-item a {
