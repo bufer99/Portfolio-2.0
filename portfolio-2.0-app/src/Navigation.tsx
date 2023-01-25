@@ -34,20 +34,18 @@ const NavItem = ({ children, id }: { children: React.ReactNode, id: string }) =>
 
 const MobileNavItem = ({ children }: { children: React.ReactNode }) => {
     return (
-        <AnimatePresence exitBeforeEnter={true}>
-            <Box
-                as={motion.div}
-                color="white"
-                fontSize="30px"
-                textTransform="uppercase"
+        <Box
+            as={motion.div}
+            color="white"
+            fontSize="30px"
+            textTransform="uppercase"
 
-                initial={{ x: 300, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -300, opacity: 0 }}
-            >
-                {children}
-            </Box>
-        </AnimatePresence>
+            initial={{ y: 150, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -150, opacity: 0 }}
+        >
+            {children}
+        </Box>
     )
 }
 
