@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Img, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Flex, Grid, Img, Text, Tooltip, transition } from "@chakra-ui/react";
 import { DiJava, DiReact, DiPhp, DiLaravel, DiCss3, DiHtml5, DiJsBadge, DiCode, DiTerminal } from "react-icons/di";
 import { SiTypescript, SiLaravel, SiJava, SiRedux } from "react-icons/si";
 import { FaDatabase } from "react-icons/fa";
@@ -13,10 +13,13 @@ const IconWrapper = ({ children, label }: { children: React.ReactNode, label: st
             display="flex"
             flexDirection="column"
             alignItems="center"
+            boxShadow="0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%)"
+            //backgroundColor="rgba(0,0,0,.03)"
             _hover={{
-                boxShadow: "0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);",
-                backgroundColor: "rgba(0,0,0,.03)"
+                transform: "scale(1.1)",
+
             }}
+            transition="transform 200ms"
             p={5}
             pb={2}
             gap={2}
@@ -24,7 +27,7 @@ const IconWrapper = ({ children, label }: { children: React.ReactNode, label: st
         >
 
             {children}
-            <Text fontSize={"25px"}>{label}</Text>
+            <Text fontSize={{ base: "1rem", md: "25px" }}>{label}</Text>
         </Box >
     )
 }
@@ -32,13 +35,14 @@ const IconWrapper = ({ children, label }: { children: React.ReactNode, label: st
 
 const SkillFlex = ({ children }: { children: React.ReactNode }) => {
     return (
-        <Flex
+        <Grid
             gap={5}
-            flexWrap="wrap"
-            ml={6}
+            ml={{ base: 0, md: 6 }}
+            justifyContent={{ base: "center", sm: "start" }}
+            gridTemplateColumns="repeat(auto-fit, minmax(80px, min-content))"
         >
             {children}
-        </Flex>
+        </Grid>
     )
 }
 
@@ -55,13 +59,17 @@ export default function Skills() {
             className="skills-content"
         >
             <Text as="h2">
-                Skills
+                Stack
             </Text>
-            <Flex>
-                <Box
-                    flexBasis="40%"
-                    bg="red"
-                >
+            <Flex
+                direction="column"
+                gap={8}
+                mt={3}
+                ml={{ base: 0, md: 5 }}
+            >
+                <Box>
+                    <Text as="h3">Frontend</Text>
+
                     <SkillFlex>
                         <IconWrapper label="JS ES6">
                             <DiJsBadge />
@@ -83,32 +91,9 @@ export default function Skills() {
                         </IconWrapper>
                     </SkillFlex>
                 </Box>
-                <Flex
-                    direction="column"
-                    alignItems="space-between"
-                    justifyContent="space-around"
-                    flexBasis="20%"
-                    bg="green"
-                >
-                    <Box
-                        alignSelf="start"
-                    >
-                        <Text as="h3">
-                            Frontend
-                        </Text>
-                    </Box>
-                    <Box
-                        alignSelf="end"
-                    >
-                        <Text as="h3">
-                            Backend
-                        </Text>
-                    </Box>
-                </Flex>
-                <Box
-                    flexBasis="40%"
-                    bg="blue"
-                >
+                <Box>
+                    <Text as="h3">Backend</Text>
+
                     <SkillFlex>
                         <IconWrapper label="Java">
                             <SiJava />
