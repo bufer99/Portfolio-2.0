@@ -23,6 +23,12 @@ aside {
   background-size: contain;
 }
 
+@media screen and (max-width: 48em){
+  .parallax{
+    display: none;
+  }
+}
+
 @media screen and (max-width: 80em){
   aside{
     display: none;

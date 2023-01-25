@@ -46,6 +46,7 @@ function App() {
   return (
     <React.Fragment>
       <Box
+        className='parallax'
         position="relative"
         h="100vh"
       >
@@ -61,7 +62,7 @@ function App() {
           w="100%"
           filter={`blur(${scrollY / 10}px)`}
           transform={`translate3d(0, -${scrollY}px, 0)`}
-          //backgroundPosition={`0 ${scrollY * (3 / 5)}px`}
+          backgroundPosition={`0 ${scrollY * (3 / 5)}px`}
           h="100%"
         />
         
