@@ -84,9 +84,9 @@ export const Navigation = () => {
                     alignItems="center"
                 >
                     <AnimatePresence exitBeforeEnter={true}>
-                        {context.sectionInViewPort === 1 && <MobileNavItem key="about">About Me</MobileNavItem>}
-                        {context.sectionInViewPort === 2 && <MobileNavItem key="stack">Stack</MobileNavItem>}
-                        {context.sectionInViewPort === 3 && <MobileNavItem key="works">Works</MobileNavItem>}
+                        {context.sectionInViewPort === 0 && <MobileNavItem key="about">About Me</MobileNavItem>}
+                        {context.sectionInViewPort === 1 && <MobileNavItem key="stack">Stack</MobileNavItem>}
+                        {context.sectionInViewPort === 2 && <MobileNavItem key="works">Works</MobileNavItem>}
                     </AnimatePresence>
                 </Box>
                 <Box

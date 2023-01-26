@@ -24,7 +24,7 @@ export default function Footer() {
                 </Link>
             </Box>
             <Box>
-                <Link href='/' download>
+                <Link href='/CV.pdf' download>
                     CV
                 </Link>
             </Box>
