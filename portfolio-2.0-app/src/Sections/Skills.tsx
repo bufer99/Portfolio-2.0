@@ -2,8 +2,9 @@ import { Box, Flex, Grid, Img, Text, Tooltip, transition } from "@chakra-ui/reac
 import { DiJava, DiReact, DiPhp, DiLaravel, DiCss3, DiHtml5, DiJsBadge, DiCode, DiTerminal } from "react-icons/di";
 import { SiTypescript, SiLaravel, SiJava, SiRedux } from "react-icons/si";
 import { FaDatabase } from "react-icons/fa";
+import { GoGear } from "react-icons/go";
 import { useRef, useState } from 'react'
-import { useInView } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 
 const IconWrapper = ({ children, label }: { children: React.ReactNode, label: string }) => {
@@ -49,14 +50,18 @@ const SkillFlex = ({ children }: { children: React.ReactNode }) => {
 
 export default function Skills() {
 
-    const ref = useRef(null)
-    const isInView = useInView(ref, { amount: .5, once: true })
+    const { ref, inView, entry } = useInView({
+        triggerOnce: true,
+        threshold: 0,
+    });
 
     //console.log(isInView)
 
     return (
         <Box
             className="skills-content"
+            ref={ref}
+            position="relative"
         >
             <Text as="h2">
                 Stack
@@ -64,24 +69,21 @@ export default function Skills() {
             <Flex
                 direction="column"
                 gap={8}
-                mt={3}
                 ml={{ base: 0, md: 5 }}
+
+                transform={inView ? "none" : "translateX(-200px)"}
+                opacity={inView ? 1 : 0}
+                transition={"all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"}
             >
                 <Box>
                     <Text as="h3">Frontend</Text>
 
                     <SkillFlex>
-                        <IconWrapper label="JS ES6">
-                            <DiJsBadge />
-                        </IconWrapper>
                         <IconWrapper label="React">
                             <DiReact />
                         </IconWrapper>
-                        <IconWrapper label="CSS">
-                            <DiCss3 />
-                        </IconWrapper>
-                        <IconWrapper label="HTML5">
-                            <DiHtml5 />
+                        <IconWrapper label="JS ES6">
+                            <DiJsBadge />
                         </IconWrapper>
                         <IconWrapper label="TS">
                             <SiTypescript />
@@ -97,9 +99,6 @@ export default function Skills() {
                     <SkillFlex>
                         <IconWrapper label="Java">
                             <SiJava />
-                        </IconWrapper>
-                        <IconWrapper label="PHP">
-                            <DiPhp />
                         </IconWrapper>
                         <IconWrapper label="Laravel">
                             <SiLaravel />

@@ -23,20 +23,20 @@ aside {
   background-size: contain;
 }
 
-@media screen and (max-width: 48em){
-  .parallax{
+@media screen and (max-width: 48em) {
+  .parallax {
     display: none;
   }
 }
 
-@media screen and (max-width: 30em){
-  h2{
+@media screen and (max-width: 30em) {
+  h2 {
     display: none;
   }
 }
 
-@media screen and (max-width: 80em){
-  aside{
+@media screen and (max-width: 80em) {
+  aside {
     display: none;
   }
 }
@@ -59,11 +59,11 @@ footer a:hover svg {
 }
 
 nav {
-  backdrop-filter: blur(100px);
+  background-image: linear-gradient(to bottom right, #FF512F, #DD2476) !important;
   z-index: 1000;
   position: sticky;
   top: 0;
-  mix-blend-mode: screen;
+  mix-blend-mode: unset;
   overflow: hidden;
 }
 
@@ -105,7 +105,7 @@ nav a:hover {
   padding-top: 69px;
 }
 
-.section-wrapper:not(:first-of-type){
+.section-wrapper:not(:first-of-type) {
   margin: 5rem 0;
 }
 
@@ -115,6 +115,7 @@ h2 {
   font-weight: 600;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 3rem !important;
+  margin-bottom: 2rem !important;
 }
 
 h3 {

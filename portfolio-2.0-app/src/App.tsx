@@ -86,13 +86,13 @@ function App() {
             <Box
               mx={{base: "1rem"}}
             >
-              <SectionLayout position={0} id="about">
+              <SectionLayout position={0} href="about">
                 <About />
               </SectionLayout>
-              <SectionLayout position={1} id="skills">
+              <SectionLayout position={1} href="skills">
                 <Skills />
               </SectionLayout>
-              <SectionLayout position={2} id="works">
+              <SectionLayout position={2} href="works">
                 <Works />
               </SectionLayout>
             </Box >

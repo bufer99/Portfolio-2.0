@@ -4,13 +4,15 @@ import { useContext } from "react";
 import { useInView } from "react-intersection-observer";
 import { SectionContext } from "./SectionContext";
 
-const NavItem = ({ children, id }: { children: React.ReactNode, id: string }) => {
+const NavItem = ({ children, index }: { children: React.ReactNode, index: number }) => {
 
-    const { sectionInViewPort } = useContext(SectionContext);
+    const { sectionInViewPort, changeSectionInViewPort } = useContext(SectionContext);
 
+    //console.log(index, sectionInViewPort)
     return (
         <Box
-            className={id === sectionInViewPort ? 'nav-item active' : 'nav-item'}
+            onClick={() => changeSectionInViewPort(index)}
+            className={index === sectionInViewPort ? 'nav-item active' : 'nav-item'}
             textTransform="uppercase"
             fontSize="30px"
             //py={3}
@@ -22,7 +24,7 @@ const NavItem = ({ children, id }: { children: React.ReactNode, id: string }) =>
             //bg={id === sectionInViewPort ? `white` : `inherit`}
             width="150px"
             zIndex="200"
-            color={id !== sectionInViewPort ? `white` : `inherit`}
+            color={index !== sectionInViewPort ? `white` : `crimson`}
 
 
         >
@@ -40,9 +42,9 @@ const MobileNavItem = ({ children }: { children: React.ReactNode }) => {
             fontSize="30px"
             textTransform="uppercase"
 
-            initial={{ y: 150, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -150, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
         >
             {children}
         </Box>
@@ -82,9 +84,9 @@ export const Navigation = () => {
                     alignItems="center"
                 >
                     <AnimatePresence exitBeforeEnter={true}>
-                        {context.sectionInViewPort === "about" && <MobileNavItem key="about">About Me</MobileNavItem>}
-                        {context.sectionInViewPort === "skills" && <MobileNavItem key="stack">Stack</MobileNavItem>}
-                        {context.sectionInViewPort === "works" && <MobileNavItem key="works">Works</MobileNavItem>}
+                        {context.sectionInViewPort === 1 && <MobileNavItem key="about">About Me</MobileNavItem>}
+                        {context.sectionInViewPort === 2 && <MobileNavItem key="stack">Stack</MobileNavItem>}
+                        {context.sectionInViewPort === 3 && <MobileNavItem key="works">Works</MobileNavItem>}
                     </AnimatePresence>
                 </Box>
                 <Box
@@ -96,30 +98,30 @@ export const Navigation = () => {
                     w="max-content"
                     h="100%"
                 >
-                    <NavItem id="about">
+                    <NavItem index={0}>
                         <Link href="#about">
                             About
                         </Link>
                     </NavItem>
-                    <NavItem id="skills">
+                    <NavItem index={1}>
                         <Link href="#skills">
                             Skills
                         </Link>
                     </NavItem>
-                    <NavItem id="works">
+                    <NavItem index={2}>
                         <Link href="#works">
                             Works
                         </Link>
                     </NavItem>
 
                     <Box
-                        opacity={context.sectionInViewPort !== "" ? "1" : "0"}
+                        //opacity={context.sectionInViewPort !== "" ? "1" : "0"}
                         position="absolute"
                         bg="white"
                         w="150px"
                         h="100%"
                         transition="left 300ms ease, opacity 200ms"
-                        left={`${context.sectionInViewPort === "works" ? "300px" : context.sectionInViewPort === "skills" ? "150px" : "0"}`}
+                        left={`${context.sectionInViewPort === 2 ? "300px" : context.sectionInViewPort === 1 ? "150px" : "0"}`}
                     />
                 </Box>
             </Box >

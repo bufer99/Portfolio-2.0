@@ -5,14 +5,14 @@ import { ScrollButton } from "./ScrollButton";
 import { SectionContext } from "./SectionContext";
 
 
-export const SectionLayout = ({ children, id, position }:
-    { children: React.ReactNode, id: string, position: number }) => {
+export const SectionLayout = ({ children, href, position }:
+    { children: React.ReactNode, href: string, position: number }) => {
 
     const { ref, inView, entry } = useInView({
-        threshold: 0.5,
+        threshold: .5,
         onChange(inView, entry) {
-            if (inView) changeSectionInViewPort(id);
-            console.log("change:",id)
+            if (inView) changeSectionInViewPort(position);
+            console.log("change:", position)
         },
     });
 
@@ -26,18 +26,17 @@ export const SectionLayout = ({ children, id, position }:
                 className="section-layout"
                 //minH="100vh"
                 ref={ref}
-                id={id}
+                id={href}
                 fontSize="xxx-large"
-               
             >
                 {children}
             </Box>
             <ScrollButton
                 position={position}
-                href={`#${id}`}
+                href={`#${href}`}
                 active={inView}
             >
-                {id}
+                {href}
             </ScrollButton>
         </Box>
     )

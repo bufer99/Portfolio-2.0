@@ -23,6 +23,12 @@ export default function Footer() {
                     <AiFillGithub />
                 </Link>
             </Box>
+            <Box>
+                <Link href='/' download>
+                    CV
+                </Link>
+            </Box>
+            
         </Box>
     )
 }

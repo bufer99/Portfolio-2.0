@@ -103,7 +103,7 @@ export default function Works() {
     const [opened, setOpened] = useState<string>("");
 
     const ref = useRef(null)
-    const isInView = useInView(ref, { amount: 1, once: true })
+    const isInView = useInView(ref, { amount: .7, once: true })
 
     //console.log(isInView)
 
