@@ -8,20 +8,16 @@ const NavItem = ({ children, index }: { children: React.ReactNode, index: number
 
     const { sectionInViewPort, changeSectionInViewPort } = useContext(SectionContext);
 
-    //console.log(index, sectionInViewPort)
     return (
         <Box
             onClick={() => changeSectionInViewPort(index)}
             className={index === sectionInViewPort ? 'nav-item active' : 'nav-item'}
             textTransform="uppercase"
             fontSize="30px"
-            //py={3}
-            //px={4}
             cursor="pointer"
             fontWeight="bold"
             position="relative"
             textAlign="center"
-            //bg={id === sectionInViewPort ? `white` : `inherit`}
             width="150px"
             zIndex="200"
             color={index !== sectionInViewPort ? `white` : `crimson`}

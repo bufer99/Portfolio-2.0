@@ -1,9 +1,8 @@
-import { Box, Flex, Grid, Img, Text, Tooltip, transition } from "@chakra-ui/react";
-import { DiJava, DiReact, DiPhp, DiLaravel, DiCss3, DiHtml5, DiJsBadge, DiCode, DiTerminal } from "react-icons/di";
+import { Box, Flex, Grid, Text } from "@chakra-ui/react";
+import { DiReact, DiJsBadge } from "react-icons/di";
 import { SiTypescript, SiLaravel, SiJava, SiRedux } from "react-icons/si";
 import { FaDatabase } from "react-icons/fa";
-import { GoGear } from "react-icons/go";
-import { useRef, useState } from 'react'
+
 import { useInView } from "react-intersection-observer";
 
 
@@ -15,7 +14,6 @@ const IconWrapper = ({ children, label }: { children: React.ReactNode, label: st
             flexDirection="column"
             alignItems="center"
             boxShadow="0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%)"
-            //backgroundColor="rgba(0,0,0,.03)"
             _hover={{
                 transform: "scale(1.1)",
 
@@ -54,8 +52,6 @@ export default function Skills() {
         triggerOnce: true,
         threshold: 0,
     });
-
-    //console.log(isInView)
 
     return (
         <Box

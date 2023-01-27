@@ -1,20 +1,9 @@
 import { Box, Flex, Img, Link, Text } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { DiGithubFull } from "react-icons/di";
 import { BiLinkExternal } from "react-icons/bi"
 import { useInView } from "framer-motion";
-import { DiJava, DiReact, DiPhp, DiLaravel, DiCss3, DiHtml5, DiJsBadge, DiCode, DiTerminal } from "react-icons/di";
-import { SiTypescript, SiLaravel, SiJava, SiRedux } from "react-icons/si";
-import { FaDatabase } from "react-icons/fa";
 
-
-const Technologies = ({ children }: { children: React.ReactNode }) => {
-    return (
-        <Box>
-            {children}
-        </Box>
-    )
-}
 
 const NewLabel = () => {
     return (
@@ -60,7 +49,6 @@ const ReferenceItem = ({ children, img, githubURL, liveURL, opened, setOpened, n
                 className="work-item"
                 borderRadius={8}
                 overflow="hidden"
-                //bg="white"
                 color="white"
                 display="flex"
                 flexDirection="column"
@@ -105,8 +93,6 @@ export default function Works() {
     const ref = useRef(null)
     const isInView = useInView(ref, { amount: .7, once: true })
 
-    //console.log(isInView)
-
     return (
         <Box
             className="work-content"
@@ -133,7 +119,7 @@ export default function Works() {
                     delay={0}
 
                 >
-                    One of my first work in native Javascript. A very <b>basic card game</b> for University subject.
+                    <b>Basic card game</b>. One of my first work in native <b>Javascript</b>. A very first for University subject.
                 </ReferenceItem>
 
                 <ReferenceItem
@@ -145,7 +131,7 @@ export default function Works() {
                     isInView={isInView}
                     delay={1}
                 >
-                    One of my first work in native Javascript. <b>Tic Tac Toe</b> game for Uni.
+                    <b>Tic Tac Toe</b>. One of my first works in native <b>Javascript</b>.
                 </ReferenceItem>
 
                 <ReferenceItem
@@ -157,19 +143,7 @@ export default function Works() {
                     isInView={isInView}
                     delay={2}
                 >
-                    <b>Form Component</b> My First React project in University asdasdas d asd
-                </ReferenceItem>
-
-                <ReferenceItem
-                    opened={opened}
-                    setOpened={setOpened}
-                    img="/references/rating.PNG"
-                    githubURL="https://github.com/bufer99/interactive-rating-component-react"
-                    liveURL="https://bufer99.github.io/interactive-rating-component-react/"
-                    isInView={isInView}
-                    delay={3}
-                >
-
+                    <b>Form Component</b>. My First <b>React</b> project at University.
                 </ReferenceItem>
                 <ReferenceItem
                     opened={opened}
@@ -180,7 +154,7 @@ export default function Works() {
                     isInView={isInView}
                     delay={4}
                 >
-                    My <b>first</b> live website with unique domain
+                    My <b>first</b> live <b>React</b> project with unique domain.
                 </ReferenceItem>
                 <ReferenceItem
                     opened={opened}
@@ -192,7 +166,7 @@ export default function Works() {
                     isInView={isInView}
                     delay={5}
                 >
-                    <b>Movie Rating App</b>. Full stack React+Laravel api website
+                    <b>Movie Rating App</b>. Full stack <b>React</b>+<b>Laravel</b> api website.
                 </ReferenceItem>
             </Box>
         </Box >

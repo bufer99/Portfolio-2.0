@@ -8,9 +8,6 @@ export const ScrollButton = ({ children, position, href, active }:
 
     const context = useContext(SectionContext);
 
-    //console.log("nav visible", context.navVisible)
-
-
     const container = {
         hidden: { x: 300 },
         show: {
@@ -31,10 +28,7 @@ export const ScrollButton = ({ children, position, href, active }:
         <AnimatePresence>
 
             {!context.navVisible &&
-                <Link
-                    href={href}
-
-                >
+                <Link href={href}>
                     <Box
                         as={motion.div}
                         variants={container}

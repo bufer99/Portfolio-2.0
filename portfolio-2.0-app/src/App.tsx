@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import { Box, Container, Flex, Link, Text } from '@chakra-ui/layout'
-import { Image } from '@chakra-ui/react'
+import React, { useState } from 'react'
+import { Box, Flex } from '@chakra-ui/layout'
 import { Navigation } from './Navigation'
 import { SectionLayout } from './Section.Layout'
-import { ScrollButton } from './ScrollButton'
-import { useInView } from 'react-intersection-observer';
-import { motion, useScroll } from "framer-motion"
 import About from './Sections/About'
 import Skills from './Sections/Skills'
 import Works from './Sections/Works'
@@ -40,8 +34,6 @@ function App() {
   };
 
   window.addEventListener('scroll', throttle(() => requestAnimationFrame(() => setScrollY(window.scrollY / 10))))
-  //window.addEventListener('scroll', () => setScrollY(window.scrollY / 10))
-
 
   return (
     <React.Fragment>
@@ -65,7 +57,7 @@ function App() {
           backgroundPosition={`0 ${scrollY * (3 / 5)}px`}
           h="100%"
         />
-        
+
 
       </Box>
       <Box
@@ -84,7 +76,7 @@ function App() {
 
             <Navigation />
             <Box
-              mx={{base: "1rem"}}
+              mx={{ base: "1rem" }}
             >
               <SectionLayout position={0} href="about">
                 <About />
