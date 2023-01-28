@@ -148,6 +148,17 @@ export default function Works() {
                 <ReferenceItem
                     opened={opened}
                     setOpened={setOpened}
+                    img="/references/pc-museum.PNG"
+                    githubURL="https://github.com/bufer99/laravel-PC-museum"
+                    liveURL="https://pc-museum-yvkf9.ondigitalocean.app//"
+                    isInView={isInView}
+                    delay={2}
+                >
+                    <b>PC-museum</b>. <b>Laravel</b> + <b>React</b> assigment for University.
+                </ReferenceItem>
+                <ReferenceItem
+                    opened={opened}
+                    setOpened={setOpened}
                     img="/references/portfolio1.PNG"
                     githubURL="https://github.com/bufer99/portfolio-react"
                     liveURL="https://bufer99.com/"
